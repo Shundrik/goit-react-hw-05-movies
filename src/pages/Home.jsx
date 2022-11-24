@@ -1,5 +1,5 @@
 import { MovieList } from 'components/MovieList';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 
 
 import { getTrendingFilms } from 'servises/api';
@@ -14,7 +14,10 @@ export const Home = () => {
 
   return (
     <>
+    <Suspense fallbackElement={<div>loading ...</div>}>
+
      <MovieList movies={movies} />
+    </Suspense>
       
     </>
   );
